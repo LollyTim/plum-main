@@ -137,7 +137,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="text-gold-500 hover:bg-gold-50 hover:text-gold-600 transition-all"
+              className="text-gold-500 hover:bg-gold-50 hover:text-gold-600 transition-all relative"
               asChild
             >
               <Link to="/cart">
