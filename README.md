@@ -1,9 +1,6 @@
-
-# Polymer Gift Store
+# Plum Gift Store
 
 A full-featured e-commerce application built with React, TypeScript, Tailwind CSS, and Appwrite backend.
-
-![Polymer Gift Store Screenshot](public/og-image.png)
 
 ## Features
 
@@ -14,7 +11,7 @@ A full-featured e-commerce application built with React, TypeScript, Tailwind CS
 - 👤 User authentication with Clerk
 - 📦 Order tracking and history
 - 🔐 Admin dashboard for product and order management
-- 📱 Fully responsive design 
+- 📱 Fully responsive design
 - 🎨 Modern UI with Tailwind CSS and shadcn/ui components
 
 ## Setup Instructions
@@ -49,12 +46,14 @@ VITE_PAYSTACK_PUBLIC_KEY=pk_test_your_paystack_key
 ### Installation
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/polymer-gift-store.git
    cd polymer-gift-store
    ```
 
 2. Install dependencies:
+
    ```
    npm install
    ```
@@ -86,6 +85,7 @@ You need to create the following collections:
 
 1. Create a new collection named "products"
 2. Set up the following attributes:
+
    - `name` (string, required)
    - `category` (string, required)
    - `price` (number, required)
@@ -103,6 +103,7 @@ You need to create the following collections:
 
 1. Create a new collection named "orders"
 2. Set up the following attributes:
+
    - `userId` (string, required)
    - `customerName` (string, required)
    - `customerEmail` (string, required)
@@ -131,6 +132,7 @@ You need to create the following collections:
 
 1. Create a new collection named "users"
 2. Set up the following attributes:
+
    - `email` (string, required, unique)
    - `role` (string, default: 'customer')
    - `name` (string)
@@ -150,6 +152,7 @@ You need to create the following collections:
 ### 5. Set up Indexes for Performance
 
 For each collection, create appropriate indexes:
+
 - Products: category, featured
 - Orders: userId, status
 - Users: email
@@ -200,10 +203,12 @@ polymer-gift-store/
 ### Common Issues
 
 1. **Authentication Errors**
+
    - Ensure your Clerk publishable key is correctly set in `.env.local`
    - Check that your application's URL is added to Clerk's allowed origins
 
 2. **Database Connection Issues**
+
    - Verify all Appwrite credentials in `.env.local`
    - Ensure collections have proper attributes and indexes
 
@@ -216,6 +221,7 @@ polymer-gift-store/
 This application can be deployed to any static site hosting service:
 
 1. Build the application:
+
    ```
    npm run build
    ```
