@@ -30,7 +30,7 @@ import OrderDetail from "./pages/OrderDetail";
 const queryClient = new QueryClient();
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || 'pk_test_Y29tcGxldGUtZ29sZGZpc2gtNzMuY2xlcmsuYWNjb3VudHMuZGV2JA'; // Using fallback for development
 
-// Protected Route component
+// Protected Route component for admin users
 const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, isLoaded } = useUser();
   const userEmail = user?.primaryEmailAddress?.emailAddress;
@@ -40,6 +40,21 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   }
 
   if (!user || !isAuthorizedAdmin(userEmail)) {
+    return <Navigate to="/sign-in" replace />;
+  }
+
+  return <>{children}</>;
+};
+
+// Protected Route component for authenticated users
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { user, isLoaded } = useUser();
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
     return <Navigate to="/sign-in" replace />;
   }
 
@@ -93,11 +108,31 @@ const App = () => (
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/product/:productId" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/order-confirmation" element={<OrderConfirmation />} />
-                <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
-                <Route path="/order-tracking/:orderId" element={<OrderTracking />} />
-                <Route path="/account" element={<Account />} />
+                <Route path="/checkout" element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                } />
+                <Route path="/order-confirmation" element={
+                  <ProtectedRoute>
+                    <OrderConfirmation />
+                  </ProtectedRoute>
+                } />
+                <Route path="/order-confirmation/:orderId" element={
+                  <ProtectedRoute>
+                    <OrderConfirmation />
+                  </ProtectedRoute>
+                } />
+                <Route path="/order-tracking/:orderId" element={
+                  <ProtectedRoute>
+                    <OrderTracking />
+                  </ProtectedRoute>
+                } />
+                <Route path="/account" element={
+                  <ProtectedRoute>
+                    <Account />
+                  </ProtectedRoute>
+                } />
                 <Route
                   path="/admin"
                   element={

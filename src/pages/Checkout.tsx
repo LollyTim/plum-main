@@ -34,12 +34,6 @@ const Checkout = () => {
     zipCode: "",
   });
 
-  useEffect(() => {
-    if (!SignedIn) {
-      navigate("/sign-in");
-    }
-  }, [SignedIn, navigate]);
-
   const shipping = 5;
   const tax = parseFloat((subtotal * 0.07).toFixed(2));
   const total = subtotal + shipping + tax;
