@@ -59,7 +59,7 @@ import { isAuthorizedAdmin } from "@/config/admin";
 export const ADMIN_EMAILS = [
   "ololadetimileyin3@gmail.com",
   "Plumsurprises@gmail.com",
-  "okorochukwujoy2020@gmail.com" // Add more admin emails as needed
+  "okorochukwujoy2020@gmail.com"
 ];
 
 const Admin = () => {
