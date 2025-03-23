@@ -1,6 +1,10 @@
 // List of authorized admin email addresses
 export const ADMIN_EMAILS = [
-  "ololadetimileyin3@gmail.com", // Replace with your actual admin email
+  "ololadetimileyin3@gmail.com",
+  "Plumsurprises@gmail.com",
+  "joyqueenokorochukwu@gmail.com",
+
+  // Replace with your actual admin email
   // "support@example.com", // Add more admin emails as needed
 ];
 

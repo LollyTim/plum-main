@@ -57,8 +57,9 @@ import { useUser } from "@clerk/clerk-react";
 import { isAuthorizedAdmin } from "@/config/admin";
 
 export const ADMIN_EMAILS = [
-  'ololadetimileyin3@gmail.com',  // Replace with your email
-  // 'another-admin@example.com',  // Add more admin emails as needed
+  "ololadetimileyin3@gmail.com",
+  "Plumsurprises@gmail.com",
+  "joyqueenokorochukwu@gmail.com", // Add more admin emails as needed
 ];
 
 const Admin = () => {
